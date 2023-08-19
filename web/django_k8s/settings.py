@@ -94,6 +94,8 @@ DB_IS_AVAIL = all([
 ])
 
 POSTGRES_READY=str(os.environ.get("POSTGRES_READY")) == "1"
+DB_IGNORE_SSL=os.environ.get("POSTGRES_PORT")
+
 
 if DB_IS_AVAIL and POSTGRES_READY:
     DATABASES = {
@@ -106,6 +108,11 @@ if DB_IS_AVAIL and POSTGRES_READY:
             "PORT": DB_PORT,
         }
     }
+
+    if not DB_IGNORE_SSL:
+        DATABASES['default']['OPTIONS'] = {
+            "sslmode": "required"
+        }
 
 
 
