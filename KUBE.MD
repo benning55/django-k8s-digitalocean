@@ -1,5 +1,11 @@
 # Command
 
+# MAIN APPLY
+
+```
+kubectl apply -f k8s/apps/django-k8s-web.yaml
+```
+
 ```
 Deployment
 

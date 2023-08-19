@@ -3,7 +3,7 @@ pip install -r requirements.txt
 # django-k8s-digitalocean
 
 ```
-docker build -t registry.digitalocean.com/benning-k8s/django-k8s-web:latest -f Dockerfile .
+docker build --platform=linux/amd64 -t registry.digitalocean.com/benning-k8s/django-k8s-web:latest -f Dockerfile .
 
 docker push registry.digitalocean.com/benning-k8s/django-k8s-web --all-tags
 ```
