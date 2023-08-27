@@ -74,3 +74,23 @@ kubectl describe challenge
 
 kubectl --namespace default get services -o wide -w ingress-nginx-controller
 ```
+
+# Process to deploy 1 application
+
+```
+Create config
+Create Secret
+Create Deployment
+Create Service
+
+install ingress follow: https://platform9.com/learn/v1.0/tutorials/nginix-controller-via-yaml
+install cert manager follow: https://cert-manager.io/docs/installation/kubectl/
+
+get token from cloudflare to access dns01 challenge
+
+apply secret-cloudflare.yaml
+apply cluster-issuer.yaml
+apply certificate.yaml
+
+write ingress that to map Service for application
+```
