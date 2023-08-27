@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: nginx-test
+  namespace: default
+spec:
+  secretName: nginx-test
+  issuerRef:
+    name: acme-issuer
+    kind: ClusterIssuer
+  dnsNames:
+    - benning.cloud
+    - nginx.benning.cloud
+    - django.benning.cloud

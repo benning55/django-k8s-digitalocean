@@ -6,13 +6,13 @@
   ],
   "settings": {
     "terminal.integrated.env.osx": {
-      "KUBECONFIG": "${workspaceFolder}/.kube/kubeconfig.yaml"
+      "KUBECONFIG": "${workspaceFolder}/.kube/test.yaml"
     },
     "terminal.integrated.env.windows": {
-      "KUBECONFIG": "${workspaceFolder}\\.kube\\kubeconfig.yaml"
+      "KUBECONFIG": "${workspaceFolder}\\.kube\\test.yaml"
     },
     "terminal.integrated.env.linux": {
-      "KUBECONFIG": "${workspaceFolder}/.kube/kubeconfig.yaml"
+      "KUBECONFIG": "${workspaceFolder}/.kube/test.yaml"
     },
     "[python]": {
       "editor.defaultFormatter": "ms-python.black-formatter"
