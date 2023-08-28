@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres-deployment
+  template:
+    metadata:
+      labels:
+        app: postgres-deployment
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:12
+          envFrom:
+            - secretRef:
+                name: postgres-secret
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: postgres-vol
+      volumes:
+        - name: postgres-vol
+          persistentVolumeClaim:
+            claimName: postgres-pv-claim
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-service
+spec:
+  type: NodePort
+  ports:
+    - nodePort: 30000
+      port: 5432
+      protocol: TCP
+      targetPort: 5432
+  selector:
+    app: postgres-deployment

@@ -44,7 +44,7 @@ service
 ```
 Secrets add
 
-kubectl create secret generic django-k8s-web-prod-env --from-env-file=.env.prod
+kubectl create secret generic django-k8s-web-prod-env --from-env-file=/Users/sedthawuth.m/Documents/django-kube-digitalocean/web/.env.prod
 kubectl get secret django-k8s-web-prod-env -o YAML
 
 kubectl get serviceaccount default -o YAML (get service account)
@@ -93,4 +93,11 @@ apply cluster-issuer.yaml
 apply certificate.yaml
 
 write ingress that to map Service for application
+```
+
+```
+Calling between service
+
+curl nginx-service.default.svc.cluster.local
+curl django-service.default.svc.cluster.local
 ```
